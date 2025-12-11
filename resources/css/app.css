@@ -22,7 +22,6 @@ body {
 /* === Navbar === */
 
 
-/* small adjustments to match the screenshot look */
 
 .site-header {
   background: #fdfaf5 ;
@@ -98,7 +97,7 @@ body {
 /* === FOOTER === */
 .site-footer {
   background: #f0e9e0;
-  padding: 2rem 1rem 1rem; /* ensure some side padding on small screens */
+  padding: 2rem 1rem 1rem;
   border-top: 1px solid #e0d8ce;
 }
 
@@ -122,9 +121,8 @@ body {
 
 .footer-col {
   padding-right: 50px;
-  margin-right: 20px;/* individual footer column styles */
+  margin-right: 20px;
 }
-
 
 @media (max-width: 880px) {
   .site-footer .container {
@@ -138,7 +136,6 @@ body {
   margin-bottom: 1rem;
   color: #8b5e3c;
 }
-
 
 
 .footer-col ul {
@@ -159,16 +156,16 @@ body {
   color: #8b5e3c;
 }
 
-/* Optional: small divider between content and copyright */
+
 .footer-divider {
-  grid-column: 1 / -1; /* span full width */
+  grid-column: 1 / -1; 
   height: 1px;
   background: #e0d8ce;
   margin: 1rem 0;
 }
 
 .copyright {
-  grid-column: 1 / -1; /* span full width */
+  grid-column: 1 / -1; 
   text-align: center;
   font-size: 0.8rem;
   color: #777;
@@ -216,7 +213,6 @@ body {
   color: white;
 }
 
-
 /* === HERO SECTION === */
 .hero-section {
   padding: 3.5rem 1rem;
@@ -226,9 +222,9 @@ body {
 .hero-section .container {
   display: flex;
   gap: 2.5rem;
-  align-items: center; /* vertical centering */
-  justify-content: space-between; /* spread left and right evenly */
-  flex-wrap: wrap; /* allow stacking on smaller screens */
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .hero-content {
@@ -305,9 +301,9 @@ body {
 /* === Responsive === */
 @media (max-width: 980px) {
   .hero-section .container {
-    flex-direction: column-reverse; /* stack image on top */
+    flex-direction: column-reverse; 
     align-items: center;
-    text-align: center; /* center text on small screens */
+    text-align: center;
   }
 
   .hero-content, .hero-image {
@@ -362,22 +358,36 @@ body {
   text-align: left;
 }
 
-/* Ensure image appears on the left inside the story-content even if
-   the DOM order is text then image. */
-.our-story-section 
-.story-image { order: 0; flex: 0 0 420px; }
-
+.our-story-section .story-image {
+   order: 0; 
+   flex: 0 0 420px; 
+  }
 
 @media (max-width: 980px) {
   .our-story-section .container {
-    grid-template-columns: 1fr; /* stack heading + content */
+    grid-template-columns: 1fr;
   }
-  .our-story-section h2 { grid-column: 1; margin-bottom: 0.5rem; }
-  .our-story-section .story-content { grid-column: 1; flex-direction: column-reverse; }
-  .our-story-section .story-image { order: 0; width: 100%; max-width: 100%; flex: none; }
-  .our-story-section .story-text  { order: 1; }
-}
 
+  .our-story-section h2 {
+     grid-column: 1;
+    margin-bottom: 0.5rem;
+   }
+
+  .our-story-section .story-content { 
+    grid-column: 1; 
+    flex-direction: column-reverse; 
+  }
+
+  .our-story-section .story-image { 
+    order: 0; 
+    width: 100%; 
+    max-width: 100%; 
+    flex: none; 
+  }
+
+  .our-story-section .story-text  { 
+    order: 1; } 
+  }
 
 .featured-section h2 {
   text-align: center;
@@ -402,7 +412,6 @@ body {
   font-size: 18px !important;
   margin-top: 0px;
 }
-
 
 /* === PAINTING CARD === */
 .painting-grid {
@@ -467,7 +476,6 @@ body {
 }
 
 
-
 .view-btn {
   padding: 10px 14px;
   background: #eae3d8;
@@ -479,8 +487,8 @@ body {
   font-size: 18px !important;
   cursor: pointer;
   display: block;
-  width: 300px; /* fixed width as requested */
-  margin: 12px auto 16px; /* center horizontally and add vertical spacing */
+  width: 300px; 
+  margin: 12px auto 16px; 
   text-align: center;
 
 }
@@ -494,14 +502,12 @@ body {
   margin: 0 0 6px 0;
 }
 
-/* Responsive: allow cards to auto-size on small screens */
 @media (max-width: 720px) {
   .painting-card { height: auto; }
   .painting-card img { height: 200px; }
   .painting-info { padding: 12px; text-align: center; }
   .card-bottom { justify-content: center; }
 }
-
 
 
 /* === WHY COLLECT === */
@@ -655,7 +661,6 @@ body {
 .faq-item p {
   color: #666;
 }
-
 
 /* === PRODUCT DETAIL PAGE === */
 .breadcrumbs {
@@ -847,7 +852,6 @@ body {
 
 
 
-
 /* --- ABOUT SECTIONS IN PRIDCUT VIEW --- */
 .about-sections {
   margin-top: 2rem;
@@ -877,7 +881,7 @@ body {
 .related-section {
   margin-top: 12px;
   margin-bottom: 12px;
-  text-align: center; /* ensure inline/block children center if needed */
+  text-align: center; 
 }
 
 .related-section h2 {
@@ -888,7 +892,7 @@ body {
 
 .painting-grid {
   display: grid;
-  padding: 24px 30px; /* reduced vertical padding */
+  padding: 24px 30px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
 }
@@ -918,7 +922,6 @@ body {
     height: auto;
   }
 }
-
 
 
 
@@ -985,9 +988,8 @@ body {
   height: 500px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  object-fit: cover; /* ensures image covers the area without stretching */
+  object-fit: cover; 
 }
-
 
 .values-section {
   padding: 3rem 0;
@@ -1017,22 +1019,20 @@ body {
   height: 180x;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* distributes content evenly */
-  overflow: hidden; /* hides excess content if too big */
+  justify-content: space-between; 
+  overflow: hidden; 
 }
-
 
 .value-card h3 {
   color: #333;
-  font-size: 1.2rem; /* optional: adjust size */
+  font-size: 1.2rem; 
 }
 
 .value-card p {
-  margin: 0; /* remove default top/bottom margin */
+  margin: 0;
   color: #666;
   font-size: 0.9rem;
 }
-
 
 .team-section {
   padding: 3rem 0;
@@ -1173,17 +1173,17 @@ body {
 .info-card {
   background: white;
   padding: 1.5rem;
+}
 
-/* --- Small fixes to prevent cards overlapping footer and to tighten View All spacing --- */
-/* Keep these at file end so they override duplicated rules elsewhere in the file. */
+
 .featured-section .painting-grid {
-  margin-bottom: 12px; /* bring grid closer to the button */
-  gap: 20px; /* consistent card gaps */
+  margin-bottom: 12px; 
+  gap: 20px; 
 }
 
 .container-view-all-button {
   text-align: center;
-  margin: 8px 0 18px; /* small top and bottom spacing */
+  margin: 8px 0 18px; 
 }
 
 .container-view-all-button .view-all-button .btn-primary {
@@ -1195,20 +1195,17 @@ body {
   border: none;
 }
 
-/* Ensure Why Collect section sits closer after the button */
+
 .why-collect-section {
   padding-top: 28px;
 }
 
-/* Ensure footer has a bit of breathing room from content */
 .site-footer {
   margin-top: 24px;
 }
 
-/* Defensive: ensure painting cards don't add extra bottom overlap */
 .painting-card {
   margin-bottom: 0;
-}
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   text-align: center;
@@ -1372,26 +1369,103 @@ body {
 /* Info Cards */
 .info-cards { 
   display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto 50px; }
-.card { background: white; padding: 20px; border-radius: 10px; text-align: left; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-.icon { font-size: 20px; background: #f2e4d3; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 10px; }
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 20px; 
+  max-width: 900px; 
+  margin: 0 auto 50px; 
+}
+
+.card { background: white; 
+  padding: 20px; 
+  border-radius: 10px; 
+  text-align: left; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+}
+
+.icon { font-size: 20px; 
+  background: #f2e4d3; 
+  width: 36px; 
+  height: 36px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 50%; 
+  margin-bottom: 10px; 
+}
 
 /* Form + FAQ */
-.content { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.form-section h2, .faq-section h2 { margin-bottom: 20px; font-size: 18px; }
-.form-section label { display: block; margin-bottom: 5px; font-size: 13px; }
-.form-section input, .form-section textarea { width: 100%; padding: 10px; border-radius: 6px; border: none; margin-bottom: 8px; background: #e8d9c8; resize: none; }
-.form-section button { width: 100%; padding: 12px; background: #a86400; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; }
-.faq-item { background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-.faq-item h4 { margin-bottom: 5px; font-size: 14px; }
+.content { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 40px; 
+}
 
-.error { color: #b02a37; font-size: 13px; margin-bottom: 8px; }
-.success { color: #166534; margin-top: 12px; }
+.form-section h2, .faq-section h2 { 
+  margin-bottom: 20px; 
+  font-size: 18px; 
+}
 
-.submit-btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+.form-section label { 
+  display: block; 
+  margin-bottom: 5px; 
+  font-size: 13px; 
+}
 
-@media (max-width: 900px) { .content { grid-template-columns: 1fr; } }
+.form-section input, .form-section textarea { 
+  width: 100%; 
+  padding: 10px; 
+  border-radius: 6px; 
+  border: none; 
+  margin-bottom: 8px; 
+  background: #e8d9c8; 
+  resize: none; 
+}
 
+.form-section button { 
+  width: 100%; 
+  padding: 12px; 
+  background: #a86400; 
+  color: white; 
+  font-weight: bold; 
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+}
+
+.faq-item { 
+  background: white; 
+  padding: 15px; 
+  border-radius: 10px; 
+  margin-bottom: 15px; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+}
+.faq-item h4 { 
+  margin-bottom: 5px; 
+  font-size: 14px; 
+}
+
+.error { 
+  color: #b02a37; 
+  font-size: 13px; 
+  margin-bottom: 8px; 
+}
+
+.success { 
+  color: #166534; 
+  margin-top: 12px; 
+}
+
+.submit-btn[disabled] { 
+  opacity: 0.6; 
+  cursor: not-allowed; 
+}
+
+@media (max-width: 900px) { 
+  .content { 
+    grid-template-columns: 1fr; 
+  } }
 
 
 
@@ -1478,6 +1552,7 @@ span {
   margin-right: 10px;
 }
 
-/* --- Ensure current bid color is correct inside painting cards --- */
+
+
 
 
