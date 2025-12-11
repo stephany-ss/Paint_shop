@@ -2,10 +2,11 @@
   <AppLayout>
     <section class="contact-page">
       <div class="container">
+
         <!-- Hero Section -->
         <div class="hero-section">
           <h1>Get In Touch</h1>
-          <p>Have questions about our paintings or want to learn more? We’d love to hear from you. Send us a message and we’ll respond as soon as possible.</p>
+          <p>Have questions about our paintings or want to learn more? We’d love to hear from you.</p>
         </div>
 
         <!-- Contact Info Cards -->
@@ -13,17 +14,16 @@
           <div class="info-card">
             <h3>Email</h3>
             <p>info@arcaneartifacts.com</p>
-            <p>We typically respond within 24 hours</p>
           </div>
+
           <div class="info-card">
             <h3>Phone</h3>
             <p>+1 (555) 123-4567</p>
-            <p>Mon-Fri, 9:00 AM - 6:00 PM EST</p>
           </div>
+
           <div class="info-card">
             <h3>Location</h3>
-            <p>123 Gallery Street</p>
-            <p>New York, NY 10001</p>
+            <p>123 Gallery Street, New York, NY</p>
           </div>
         </div>
 
@@ -36,6 +36,8 @@
           </div>
 
           <form @submit.prevent="submitForm" class="contact-form">
+
+            <!-- Full Name -->
             <div class="form-group">
               <label for="full_name">Full Name</label>
               <input
@@ -48,18 +50,20 @@
               <div v-if="errors.full_name" class="error-message">{{ errors.full_name[0] }}</div>
             </div>
 
+            <!-- Email -->
             <div class="form-group">
-              <label for="email">Email Address</label>
+              <label for="email">Email</label>
               <input
                 id="email"
                 v-model="formData.email"
                 type="email"
                 :class="{ 'is-invalid': errors.email }"
-                placeholder="your@email.com"
+                placeholder="example@email.com"
               />
               <div v-if="errors.email" class="error-message">{{ errors.email[0] }}</div>
             </div>
 
+            <!-- Subject -->
             <div class="form-group">
               <label for="subject">Subject</label>
               <input
@@ -72,73 +76,77 @@
               <div v-if="errors.subject" class="error-message">{{ errors.subject[0] }}</div>
             </div>
 
+            <!-- Message -->
             <div class="form-group">
               <label for="message">Message</label>
               <textarea
                 id="message"
                 v-model="formData.message"
                 :class="{ 'is-invalid': errors.message }"
-                placeholder="Tell us more about your inquiry..."
+                placeholder="Tell us more..."
               ></textarea>
               <div v-if="errors.message" class="error-message">{{ errors.message[0] }}</div>
             </div>
 
+            <!-- Submit -->
             <button type="submit" class="send-btn" :disabled="loading">
-              {{ loading ? 'Sending...' : 'Send Message' }}
+              {{ loading ? "Sending..." : "Send Message" }}
             </button>
           </form>
         </div>
 
-        <!-- FAQ Section -->
-        <div class="faq-section">
-          <h2>Frequently Asked Questions</h2>
-          <div class="faq-item">
-            <h3>How do I place a bid?</h3>
-            <p>Browse our collection, find a painting you like, and enter your bid amount. Your bid must be higher than the current highest bid.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Is authentication guaranteed?</h3>
-            <p>Yes, all paintings in our collection are authenticated by certified art experts. Each piece includes a certificate of authenticity.</p>
-          </div>
-          <div class="faq-item">
-            <h3>What is the shipping cost?</h3>
-            <p>Shipping costs vary based on location and painting size. You’ll receive an accurate quote after placing your order.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Do you offer insurance?</h3>
-            <p>Yes, all shipments are fully insured against loss or damage. Insurance is included in the final cost.</p>
-          </div>
-        </div>
       </div>
     </section>
   </AppLayout>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import axios from 'axios';
-import AppLayout from '@/Components/AppLayout.vue';
+import { ref } from "vue";
+import axios from "axios";
+import AppLayout from "@/Components/AppLayout.vue";
 
+// GLOBAL VALIDATION IMPORT
+import { validateContactForm } from "@/utils/contactValidation";
+
+// Form data
 const formData = ref({
-  full_name: '',
-  email: '',
-  subject: '',
-  message: ''
+  full_name: "",
+  email: "",
+  subject: "",
+  message: ""
 });
 
+// Error & state handling
 const errors = ref({});
-const successMessage = ref('');
+const successMessage = ref("");
 const loading = ref(false);
 
+// Submit form
 const submitForm = async () => {
   errors.value = {};
-  successMessage.value = '';
+  successMessage.value = "";
+
+
+  const validationErrors = validateContactForm(formData.value);
+
+  if (Object.keys(validationErrors).length > 0) {
+    errors.value = validationErrors;
+    return; // Stop submission
+  }
+
   loading.value = true;
 
   try {
-    const res = await axios.post('/contact', formData.value);
-    successMessage.value = 'Thank you for your message! We’ll get back to you soon.';
-    formData.value = { full_name: '', email: '', subject: '', message: '' };
+    const res = await axios.post("/contact", formData.value);
+    successMessage.value = "Thank you! We'll get back to you soon.";
+
+    // Clear form
+    formData.value = {
+      full_name: "",
+      email: "",
+      subject: "",
+      message: ""
+    };
   } catch (err) {
     if (err.response?.data?.errors) {
       errors.value = err.response.data.errors;
